@@ -10,12 +10,13 @@ const inputFunction = () => {
 	const listText = document.createElement("span");
 	const listBtn = document.createElement("button");
 
-	if (inputItem !== "" && inputItem.length <= 50) {
+	if (inputItem !== "" && inputItem.length <= 22) {
 		listText.textContent = inputItem;
 		listItem.appendChild(listText);
 
 		listItem.appendChild(listBtn);
 		listBtn.textContent = "Delete";
+		listBtn.classList = "btn delete";
 
 		list.appendChild(listItem);
 	}
