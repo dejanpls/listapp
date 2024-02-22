@@ -2,6 +2,7 @@ const input = document.querySelector("input[type='text']");
 const button = document.querySelector("button");
 const list = document.querySelector(".list");
 
+
 const inputFunction = () => {
 	const inputItem = input.value;
 	input.value = "";
@@ -17,7 +18,7 @@ const inputFunction = () => {
 		listItem.appendChild(listBtn);
 		listBtn.textContent = "Delete";
 		listBtn.classList = "btn delete";
-
+		
 		list.appendChild(listItem);
 	}
 
@@ -32,3 +33,7 @@ const inputFunction = () => {
 };
 
 button.addEventListener("click", inputFunction);
+
+input.addEventListener("keypress", (e) => {
+	if (e.key === "Enter") inputFunction();
+});
