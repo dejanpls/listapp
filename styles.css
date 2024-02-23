@@ -28,22 +28,28 @@ div.container {
   	align-self: center;
 }
 
+.filter,
 .form {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.form label {
-	font-size: 20px;
+.filter {
+	display: none;
 }
 
-input#input {
-	width: 250px;
+input#input,
+input#filter {
+	width: 225px;
 	height: 25px;
 	font-size: 20px;
 	border: 2px solid #9b2226;
 	border-radius: 8px;
+}
+
+input#filter {
+	width: 310px;
 }
 
 .btn {
@@ -61,6 +67,12 @@ input#input {
 
 .btn.delete {
 	background: #9b2226;
+}
+
+.btn.filterOpen,
+.btn.filterClose {
+	width: 25px;
+	background: #f4f4f4;
 }
 
 .list li {

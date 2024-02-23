@@ -1,4 +1,4 @@
-const input = document.querySelector("input[type='text']");
+const input = document.querySelector("input[name='input']");
 const button = document.querySelector("button");
 const list = document.querySelector(".list");
 
@@ -30,12 +30,49 @@ const inputFunction = () => {
 	});
 
 	input.focus();
-
-	console.log(inputItem.length);
 };
 
 button.addEventListener("click", inputFunction);
 
 input.addEventListener("keypress", (e) => {
 	if (e.key === "Enter") inputFunction();
+});
+
+// filter items
+const filter = document.querySelector("#filter");
+
+const filterItems = (e) => {
+	const text = e.target.value.toLowerCase();
+	
+	const items = list.getElementsByTagName("li");
+	
+	Array.from(items).forEach((item) => {
+		const itemName = item.firstChild.textContent;
+
+		if(itemName.toLowerCase().indexOf(text) != -1) {
+			item.style.display = "flex";
+		} else {
+			item.style.display = "none";
+		}
+	});
+
+}
+
+filter.addEventListener("keyup", filterItems);
+
+const openFilterBtn = document.querySelector(".filterOpen"); 
+const closeFilterBtn = document.querySelector(".filterClose"); 
+const filterDiv = document.querySelector("div.filter");
+const formDiv = document.querySelector("div.form");
+
+openFilterBtn.addEventListener("click", () => {
+	// disable form visibility
+	filterDiv.style.display = "flex";
+	formDiv.style.display = "none";
+});
+
+closeFilterBtn.addEventListener("click", () => {
+	// disable filter visibility
+	formDiv.style.display = "flex";
+	filterDiv.style.display = "none";
 });

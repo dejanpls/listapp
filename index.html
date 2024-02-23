@@ -12,14 +12,20 @@
 <body>
 	<div class="container">
 		<h1 class="title">The List App</h1>
+		<div class="filter">
+			<input type="text" id="filter" name="filter" placeholder="Filter through items">
+			<button class="btn filterClose">❌</button>
+		</div>
 		<div class="form">
-			<input type="text" id="input" name="input">
+			<input type="text" id="input" name="input" placeholder="Add new items">
 			<button class="btn add">Add Item</button>
+			<button class="btn filterOpen">🔍</button>
 		</div>
 
 		<ul class="list">
 		</ul>
 	</div>	
+	
 	<div class="footer">Made with ❤️ by <a href="#">@dejanpls</a></div>
 	
 </body>
