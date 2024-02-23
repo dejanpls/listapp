@@ -23,8 +23,10 @@ const inputFunction = () => {
 	}
 
 	listBtn.addEventListener("click", () => {
-		list.removeChild(listItem);
-		input.focus();
+		if(confirm("Are you sure you want to delete this item?")) {
+			list.removeChild(listItem);
+			input.focus();
+		}
 	});
 
 	input.focus();
