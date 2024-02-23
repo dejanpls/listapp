@@ -1,8 +1,9 @@
 const input = document.querySelector("input[name='input']");
-const button = document.querySelector("button");
+const button = document.querySelector(".add");
 const list = document.querySelector(".list");
 
 
+// add items
 const inputFunction = () => {
 	const inputItem = input.value;
 	input.value = "";
@@ -32,11 +33,13 @@ const inputFunction = () => {
 	input.focus();
 };
 
+const addWithEnter = (e) => {
+	if (e.key === "Enter") inputFunction();
+};
+
 button.addEventListener("click", inputFunction);
 
-input.addEventListener("keypress", (e) => {
-	if (e.key === "Enter") inputFunction();
-});
+input.addEventListener("keypress", addWithEnter);
 
 // filter items
 const filter = document.querySelector("#filter");
@@ -56,9 +59,11 @@ const filterItems = (e) => {
 		}
 	});
 
-}
+};
 
 filter.addEventListener("keyup", filterItems);
+
+// toggle filter and form divs
 
 const openFilterBtn = document.querySelector(".filterOpen"); 
 const closeFilterBtn = document.querySelector(".filterClose"); 
@@ -75,4 +80,9 @@ closeFilterBtn.addEventListener("click", () => {
 	// disable filter visibility
 	formDiv.style.display = "flex";
 	filterDiv.style.display = "none";
+
+	filter.value = "";
+	// upon closing the filter section, reset the list view
+	const listItems = document.querySelectorAll("li");
+	listItems.forEach((item) => item.style.display = "flex");
 });
