@@ -1,10 +1,15 @@
 const input = document.querySelector("input[name='input']");
 const button = document.querySelector(".add");
 const list = document.querySelector(".list");
+const filter = document.querySelector("#filter");
+const openFilterBtn = document.querySelector(".filterOpen"); 
+const closeFilterBtn = document.querySelector(".filterClose"); 
+const filterDiv = document.querySelector("div.filter");
+const formDiv = document.querySelector("div.form");
 
 
 // add items
-const inputFunction = () => {
+function inputFunction() {
 	const inputItem = input.value;
 	input.value = "";
 
@@ -12,7 +17,8 @@ const inputFunction = () => {
 	const listText = document.createElement("span");
 	const listBtn = document.createElement("button");
 
-	if (inputItem !== "" && inputItem.length <= 22) {
+	if (inputItem !== "") {
+		
 		listText.textContent = inputItem;
 		listItem.appendChild(listText);
 
@@ -21,6 +27,8 @@ const inputFunction = () => {
 		listBtn.classList = "btn delete";
 		
 		list.appendChild(listItem);
+
+		console.log(inputItem.length);
 	}
 
 	listBtn.addEventListener("click", () => {
@@ -31,18 +39,17 @@ const inputFunction = () => {
 	});
 
 	input.focus();
-};
+}
 
-const addWithEnter = (e) => {
+function addWithEnter(e) {
 	if (e.key === "Enter") inputFunction();
-};
+}
 
 button.addEventListener("click", inputFunction);
-
 input.addEventListener("keypress", addWithEnter);
+filter.addEventListener("keyup", filterItems);
 
 // filter items
-const filter = document.querySelector("#filter");
 
 const filterItems = (e) => {
 	const text = e.target.value.toLowerCase();
@@ -61,14 +68,6 @@ const filterItems = (e) => {
 
 };
 
-filter.addEventListener("keyup", filterItems);
-
-// toggle filter and form divs
-
-const openFilterBtn = document.querySelector(".filterOpen"); 
-const closeFilterBtn = document.querySelector(".filterClose"); 
-const filterDiv = document.querySelector("div.filter");
-const formDiv = document.querySelector("div.form");
 
 openFilterBtn.addEventListener("click", () => {
 	// disable form visibility
@@ -86,3 +85,5 @@ closeFilterBtn.addEventListener("click", () => {
 	const listItems = document.querySelectorAll("li");
 	listItems.forEach((item) => item.style.display = "flex");
 });
+
+console.log("Limit the number of input characters");
