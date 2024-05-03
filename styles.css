@@ -11,7 +11,7 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	color: #1b263b;
-	background: #344e41;
+	background: #24444b;
 }
 
 div.container {
@@ -28,6 +28,7 @@ div.container {
   	font-style: normal;
   	align-self: center;
   	color: #dad7cd;
+  	margin-top: 16px;
 }
 
 .filter,
@@ -46,7 +47,7 @@ div.container {
 input#input,
 input#filter {
 	font-size: 16px;
-	border: 2px solid #000;
+	border: none;
 	border-radius: 8px;
 	padding: 8px;
 	flex: 1;
@@ -59,11 +60,11 @@ input#filter {
 	color: #e0e1dd;
 	border-radius: 8px;
 	padding: 8px;
-	border: 2px solid #000;
+	border: none;
 }
 
 .btn.add {
-	background: #3a5a40;
+	background: #4f772d;
 }
 
 .btn.delete {
@@ -90,13 +91,13 @@ input#filter {
 }
 
 div.footer {
-	height: 7vh;
+	min-height: 7vh;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #344e41;
-	background: #fffcf2;
+	background: #a3b18a;
 }
 
 div.footer a {
