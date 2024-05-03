@@ -48,10 +48,12 @@ function addWithEnter(e) {
 button.addEventListener("click", inputFunction);
 input.addEventListener("keypress", addWithEnter);
 filter.addEventListener("keyup", filterItems);
+openFilterBtn.addEventListener("click", hideForm);
+closeFilterBtn.addEventListener("click", hideFilter);
 
 // filter items
 
-const filterItems = (e) => {
+function filterItems(e) {
 	const text = e.target.value.toLowerCase();
 	
 	const items = list.getElementsByTagName("li");
@@ -66,17 +68,14 @@ const filterItems = (e) => {
 		}
 	});
 
-};
+}
 
-
-openFilterBtn.addEventListener("click", () => {
-	// disable form visibility
+function hideForm() {
 	filterDiv.style.display = "flex";
 	formDiv.style.display = "none";
-});
+}
 
-closeFilterBtn.addEventListener("click", () => {
-	// disable filter visibility
+function hideFilter() {
 	formDiv.style.display = "flex";
 	filterDiv.style.display = "none";
 
@@ -84,6 +83,6 @@ closeFilterBtn.addEventListener("click", () => {
 	// upon closing the filter section, reset the list view
 	const listItems = document.querySelectorAll("li");
 	listItems.forEach((item) => item.style.display = "flex");
-});
+}
 
 console.log("Limit the number of input characters");
