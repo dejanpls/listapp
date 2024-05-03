@@ -7,6 +7,11 @@ const closeFilterBtn = document.querySelector(".filterClose");
 const filterDiv = document.querySelector("div.filter");
 const formDiv = document.querySelector("div.form");
 
+button.addEventListener("click", inputFunction);
+input.addEventListener("keypress", addWithEnter);
+filter.addEventListener("keyup", filterItems);
+openFilterBtn.addEventListener("click", hideForm);
+closeFilterBtn.addEventListener("click", hideFilter);
 
 // add items
 function inputFunction() {
@@ -45,12 +50,6 @@ function addWithEnter(e) {
 	if (e.key === "Enter") inputFunction();
 }
 
-button.addEventListener("click", inputFunction);
-input.addEventListener("keypress", addWithEnter);
-filter.addEventListener("keyup", filterItems);
-openFilterBtn.addEventListener("click", hideForm);
-closeFilterBtn.addEventListener("click", hideFilter);
-
 // filter items
 
 function filterItems(e) {
@@ -84,5 +83,3 @@ function hideFilter() {
 	const listItems = document.querySelectorAll("li");
 	listItems.forEach((item) => item.style.display = "flex");
 }
-
-console.log("Limit the number of input characters");
