@@ -21,11 +21,13 @@ function inputFunction() {
 	const listItem = document.createElement("li");
 	const listText = document.createElement("span");
 	const listBtn = document.createElement("button");
+	const regEx = /[a-z0-9]/i;
 
-	if (inputItem !== "") {
-		
+	if (inputItem !== "" && regEx.test(inputItem)) {
+
 		listText.textContent = inputItem;
 		listItem.appendChild(listText);
+
 
 		listItem.appendChild(listBtn);
 		listBtn.textContent = "Delete";
@@ -51,7 +53,6 @@ function addWithEnter(e) {
 }
 
 // filter items
-
 function filterItems(e) {
 	const text = e.target.value.toLowerCase();
 	
