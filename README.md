@@ -2,7 +2,7 @@
 
 ## A personal project made after completion of <a href="https://www.theodinproject.com/paths/foundations/courses/foundations">TOP Foundations Course</a>
 
-View <a href="https://en.wikipedia.org/wiki/Etch_A_Sketch">live version of the app</a> if you need more info on what it does and how it looks like.
+View <a href="https://dejanpls.github.io/listapp/">live version of the app</a> if you need more info on what it does and how it looks like.
 
 ### How it works
 
