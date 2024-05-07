@@ -1,3 +1,5 @@
+const body = document.querySelector("body");
+const container = document.querySelector("div.container");
 const input = document.querySelector("input[name='input']");
 const button = document.querySelector(".add");
 const list = document.querySelector(".list");
@@ -6,12 +8,21 @@ const openFilterBtn = document.querySelector(".filterOpen");
 const closeFilterBtn = document.querySelector(".filterClose"); 
 const filterDiv = document.querySelector("div.filter");
 const formDiv = document.querySelector("div.form");
+const cancelBtn = document.querySelector(".btn.cancel")
+const confirmBtn = document.querySelector(".btn.confirm")
+const blurredBackground = document.querySelector("div.blurred");
+const question = document.querySelector("div.popup .question");
+
+let selectedListItem;
 
 button.addEventListener("click", inputFunction);
 input.addEventListener("keypress", addWithEnter);
 filter.addEventListener("keyup", filterItems);
 openFilterBtn.addEventListener("click", hideForm);
 closeFilterBtn.addEventListener("click", hideFilter);
+
+cancelBtn.addEventListener("click", hidePopup);
+confirmBtn.addEventListener("click", selectDelete);
 
 // add items
 function inputFunction() {
@@ -35,18 +46,33 @@ function inputFunction() {
 		
 		list.appendChild(listItem);
 
-		console.log(inputItem.length);
 	}
 
 	listBtn.addEventListener("click", () => {
-		if(confirm("Are you sure you want to delete this item?")) {
-			list.removeChild(listItem);
-			input.focus();
-		}
+		showPopup();
+		selectedListItem = listItem;
+		const itemName = selectedListItem.querySelector("span").textContent;
+		itemName.style.color = "#f00";
+		question.textContent = `Are you sure you want to remove ${itemName}?`;
 	});
 
 	input.focus();
 }
+
+function showPopup() {
+	blurredBackground.style.display = "flex";
+}
+
+function hidePopup() {
+	blurredBackground.style.display = "none";
+}
+
+function selectDelete (e) {
+	list.removeChild(selectedListItem);
+	hidePopup();
+}
+
+
 
 function addWithEnter(e) {
 	if (e.key === "Enter") inputFunction();

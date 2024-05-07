@@ -24,12 +24,50 @@ div.container {
 	min-width: 350px;
 }
 
+div.blurred {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 9;
+	background-color: rgb(255 255 255 / 30%);
+ 	backdrop-filter: blur(2px);
+ 	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+div.popup {
+	width: 350px;
+	height: 150px;
+	border: 1px solid #fff;
+	border-radius: 8px;
+	color: #1b263b;
+	background: #24444b;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+div.btnContainer {
+	gap: 8px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+p.question {
+	font-size: 20px;
+	color: #e0e1dd;
+	font-family: "Bebas Neue", sans-serif;
+}
+
 .title {
   	align-self: center;
   	color: #dad7cd;
   	margin-top: 16px;
 	font-family: "Bebas Neue", sans-serif;
-
 }
 
 .filter,
@@ -47,10 +85,10 @@ div.container {
 
 input#input,
 input#filter {
-	font-size: 16px;
-	border: none;
+	font-size: 20px;
+	border: 1px solid #fff;
 	border-radius: 8px;
-	padding: 8px;
+	padding: 7px;
 	flex: 1;
 	background: #cad2c5;
 	border: 1px solid #cad2c5;
@@ -58,17 +96,15 @@ input#filter {
 
 .btn {
 	min-width: 40px;
-	font-size: 16px;
+	min-height: 40px;
+	max-height: 40px;
+	font-size: 18px;
 	color: #e0e1dd;
 	border-radius: 8px;
 	padding: 8px;
 	border: 1px solid #cad2c5;
 	background: inherit;
 }
-
-/*.btn.add {
-	background: #4f772d;
-}*/
 
 .btn.delete {
 	background: #bc4749;
@@ -80,7 +116,6 @@ input#filter {
 .btn.filterOpen,
 .btn.filterClose {
 	width: 25px;
-/*	background: #588157;*/
 }
 
 .list li {
