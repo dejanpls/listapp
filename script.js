@@ -52,7 +52,6 @@ function inputFunction() {
 		showPopup();
 		selectedListItem = listItem;
 		const itemName = selectedListItem.querySelector("span").textContent;
-		itemName.style.color = "#f00";
 		question.textContent = `Are you sure you want to remove ${itemName}?`;
 	});
 
@@ -71,8 +70,6 @@ function selectDelete (e) {
 	list.removeChild(selectedListItem);
 	hidePopup();
 }
-
-
 
 function addWithEnter(e) {
 	if (e.key === "Enter") inputFunction();
