@@ -1,6 +1,7 @@
 const body = document.querySelector("body");
 const container = document.querySelector("div.container");
 const input = document.querySelector("input[name='input']");
+const inputAmount = document.querySelector("input[id='itemAmount']");
 const button = document.querySelector(".add");
 const list = document.querySelector(".list");
 const filter = document.querySelector("#filter");
@@ -17,6 +18,7 @@ let selectedListItem;
 
 button.addEventListener("click", inputFunction);
 input.addEventListener("keypress", addWithEnter);
+inputAmount.addEventListener("keypress", addWithEnter);
 filter.addEventListener("keyup", filterItems);
 openFilterBtn.addEventListener("click", hideForm);
 closeFilterBtn.addEventListener("click", hideFilter);
@@ -28,9 +30,12 @@ confirmBtn.addEventListener("click", selectDelete);
 function inputFunction() {
 	const inputItem = input.value;
 	input.value = "";
+	const amount = inputAmount.value;
+	inputAmount.value = "1";
 
 	const listItem = document.createElement("li");
 	const listText = document.createElement("span");
+	const itemAmount = document.createElement("span");
 	const listBtn = document.createElement("button");
 	const regEx = /[a-z0-9]/i;
 
@@ -38,7 +43,11 @@ function inputFunction() {
 
 		listText.textContent = inputItem;
 		listItem.appendChild(listText);
+		if (amount.length === 1) itemAmount.textContent = `Amount: 0${amount}`;
+		else itemAmount.textContent = `Amount: ${amount}`;
 
+		itemAmount.classList = "itemAmount";
+		listItem.appendChild(itemAmount);
 
 		listItem.appendChild(listBtn);
 		listBtn.textContent = "Delete";
@@ -52,7 +61,7 @@ function inputFunction() {
 		showPopup();
 		selectedListItem = listItem;
 		const itemName = selectedListItem.querySelector("span").textContent;
-		question.textContent = `Are you sure you want to remove ${itemName}?`;
+		question.textContent = `Are you sure you want to remove "${itemName}"?`;
 	});
 
 	input.focus();
