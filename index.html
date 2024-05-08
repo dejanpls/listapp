@@ -20,7 +20,16 @@
 		<div class="form">
 			<input type="text" id="input" name="input" maxlength="20" placeholder="Add new items">
 			<!-- enter code to handle the item amount here -->
-			<button class="btn add">Add Item</button>
+			<input type="text" id="itemAmount" maxlength="2" list="amount" />
+			<datalist id="amount">
+			 	<option>1</option>
+			  	<option>2</option>
+			  	<option>3</option>
+			  	<option>4</option>
+			  	<option>5</option>
+			</datalist>
+
+			<button class="btn add">Add</button>
 			<button class="btn filterOpen">🔍</button>
 		</div>
 

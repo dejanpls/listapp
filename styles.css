@@ -21,7 +21,7 @@ div.container {
 	flex-direction: column;
 	align-items: space-between;
 	gap: 8px;
-	min-width: 350px;
+	max-width: 350px;
 }
 
 div.blurred {
@@ -75,6 +75,7 @@ p.question {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	min-width: 350px;
 	max-width: 350px;
 	gap: 8px
 }
@@ -84,14 +85,18 @@ p.question {
 }
 
 input#input,
-input#filter {
-	font-size: 20px;
-	border: 1px solid #fff;
+input#filter,
+input#itemAmount {
+	font-size: 18px;
 	border-radius: 8px;
-	padding: 7px;
+	padding: 8px;
 	flex: 1;
 	background: #cad2c5;
 	border: 1px solid #cad2c5;
+}
+
+input#itemAmount {
+	max-width: 40px;
 }
 
 .btn {
